@@ -15,4 +15,10 @@ class Kelas extends Model
         'nama_kelas',
         'tersedia'
     ];
+
+    //relasi
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class, 'id_kelas', 'id');
+    }
 }

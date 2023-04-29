@@ -17,4 +17,10 @@ class Mahasiswa extends Model
         'jurusan',
         'meminjam'
     ];
+
+    //relasi
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class, 'id_mahasiswa', 'id');
+    }
 }

@@ -18,4 +18,15 @@ class Peminjaman extends Model
         'waktu_kembali',
         'status'
     ];
+
+    //relasi
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'id_mahasiswa', 'id');
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
+    }
 }

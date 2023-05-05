@@ -1,0 +1,56 @@
+*{
+    overflow: hidden;
+}
+.main-bg {
+    background-image: url("/image/img-1.png");
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.layer-1{
+    background-color: #205296;
+    opacity: .4;
+    width: 100vw;
+    height: 100vh;
+}
+
+.text-main-1,.text-main-2,.text-main-3{
+    font-family: 'Libre Bodoni', serif;
+    color: white;
+}
+.text-main-1 {
+    font-size: 15px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+.text-main-2{
+    font-size: 100px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.text-main-3{
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+.btn-main {
+    border-radius: 30px;
+    width: 200px;
+}
+
+.btn-confirm-wrap {
+    display: flex;
+    flex-direction: column;
+   
+    height: 100%;
+  }
+  .menu-wrap {
+    margin-top: 10vh;
+  }
+  .menu-list a {
+    margin-bottom: 30px;
+  }
+  .kelas-list .row {
+    margin:30px;
+  }

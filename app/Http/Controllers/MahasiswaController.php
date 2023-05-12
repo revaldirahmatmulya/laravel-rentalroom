@@ -17,6 +17,20 @@ class MahasiswaController extends Controller
         //
     }
 
+    public function check(Request $request)
+    {
+        //mahasiswa validate nim in the database
+        $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+
+        //if nim is not found
+        if (!$mahasiswa) {
+            return redirect()->back()->with('error', 'NIM tidak ditemukan');
+        } else {
+            //if nim is found go to account-login-confirm and send mahasiswa model
+            return view('account-login-confirm.index', compact('mahasiswa'));
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -22,10 +22,12 @@
 
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-center input-container mt-4">
-            <form id="ktm-form" class="d-none">
+            <form id="ktm-form" action="{{ url('mahasiswa/check') }}" method="post" class="d-none">
+                @csrf
                 <div class="mb-3">
 
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="nim" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
 
                 </div>
             </form>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,16 +28,13 @@ Route::get('/confirm', function () {
 Route::get('/menu', function () {
     return view('main-menu.index');
 });
-
-//make a route for index on ruang-kelas folder
-Route::get('/ruang-kelas', function () {
-    return view('ruang-kelas.index');
-});
+Route::get('/ruang-kelas', [KelasController::class, 'index']);
 //make a route for index on ruang-lab folder
-Route::get('/ruang-lab', function () {
-    return view('ruang-lab.index');
-});
+Route::get('/ruang-lab', [KelasController::class, 'indexLab']);
 //make a route for index on room-select-confirm folder
 Route::get('/room-select-confirm', function () {
     return view('room-select-confirm.index');
 });
+
+//make a route for call check function on mahaasiswa controller
+Route::post('/mahasiswa/check', [MahasiswaController::class, 'check']);

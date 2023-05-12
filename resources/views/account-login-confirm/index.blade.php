@@ -18,9 +18,9 @@
         <div class="col-lg-8 d-flex align-items-center justify-content-center">
             <div class="account-info-wrap text-center">
                 <img class="img-profile" src="{{ asset('image/profile.svg') }}" style="width: 200px"></img>
-                <h1>Saphira Indah P</h1>
-                <h3>D-3 Elektro Telekomunikasi</h3>
-                <h3>200605110019</h3>
+                <h1>{{ $mahasiswa->nama }}</h1>
+                <h3>{{ $mahasiswa->jurusan }}</h3>
+                <h3>{{ $mahasiswa->nim }}</h3>
             </div>
 
         </div>
@@ -28,9 +28,9 @@
 
             <div class="container" style="background-color: #6793c6;height: 100vh;">
                 <div class="btn-confirm-wrap d-flex  align-items-center justify-content-end">
-                    <a href=""><button type="button" class="btn btn-light btn-lg mb-4"
+                    <a href={{ url('menu') }}><button type="button" class="btn btn-light btn-lg mb-4"
                             style="width: 200px"><b>Confirm</b></button></a>
-                    <a href=""><button type="button"
+                    <a href="{{ url('/') }}"><button type="button"
                             class="btn btn-light btn-lg mb-4"style="width: 200px"><b>Scan Ulang</b></button></a>
                 </div>
             </div>

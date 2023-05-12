@@ -13,57 +13,16 @@
         <div class="col-lg-12 text-center">
             <div class="container kelas-list">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas A</b></button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas B</b></button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas C</b></button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas A</b></button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas B</b></button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas C</b></button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas A</b></button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas B</b></button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                Ruang
-                                Kelas C</b></button>
-                    </div>
+                    @foreach ($kelas as $e)
+                        <div class="col-lg-4">
+                            <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
+                                    {{ $e->nama_kelas }}</b></button>
+                        </div>
+                    @endforeach
+
+
+
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

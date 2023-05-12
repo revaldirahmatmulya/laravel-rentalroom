@@ -14,7 +14,28 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+
+        $kelas = Kelas::where('nama_kelas', 'like', 'kelas%')->get();
+
+
+        if ($kelas->isEmpty()) {
+            return view('ruang-kelas.index', compact('kelas'))->with('error', 'Tidak ada kelas yang tersedia');
+        } else {
+            return view('ruang-kelas.index', compact('kelas'));
+        }
+    }
+
+    public function indexLab()
+    {
+
+        $lab = Kelas::where('nama_kelas', 'like', 'lab%')->get();
+
+
+        if ($lab->isEmpty()) {
+            return view('ruang-lab.index', compact('lab'))->with('error', 'Tidak ada lab yang tersedia');
+        } else {
+            return view('ruang-lab.index', compact('lab'));
+        }
     }
 
     /**

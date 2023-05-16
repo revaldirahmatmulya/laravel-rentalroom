@@ -15,13 +15,11 @@
                 <div class="row">
                     @foreach ($lab as $e)
                         <div class="col-lg-4">
-                            <button type="button" class="btn btn-light  mb-4" style="width: 300px;height: 50px;"><b>Pinjam
-                                    {{ $e->nama_kelas }}</b></button>
+                            <a href="{{ url('pinjam/' . $e->id) }}"> <button type="button" class="btn btn-light  mb-4"
+                                    style="width: 300px;height: 50px;"><b>Pinjam
+                                        {{ $e->nama_kelas }}</b></button></a>
                         </div>
                     @endforeach
-
-
-
                 </div>
             </div>
         </div>

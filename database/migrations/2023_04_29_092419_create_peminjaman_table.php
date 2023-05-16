@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_mahasiswa')->constrained('mahasiswas');
             $table->foreignId('id_kelas')->constrained('kelas');
-            $table->string('waktu_pinjam', 100);
-            $table->string('waktu_kembali', 100);
+            $table->string('waktu_pinjam', 100)->nullable();
+            $table->string('waktu_kembali', 100)->nullable();
             $table->string('status', 50)->default('sedang dipinjam');
             $table->timestamps();
         });

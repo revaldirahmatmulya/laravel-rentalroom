@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Peminjaman;
+use App\Models\Mahasiswa;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
+use Termwind\Components\Dd;
 
 class PeminjamanController extends Controller
 {
@@ -12,9 +18,21 @@ class PeminjamanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        Session::start();
+        Carbon::setLocale('id');
+        $sesiId = Session::get('id');
+
+        $kelas = Kelas::where('id', $sesiId)->first();
+        $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();
+        $tanggal = Carbon::now()->format('Y-m-d');
+        //carbon indonesia time H:i:s
+        $jam = Carbon::now()->timezone('Asia/Jakarta')->format('H:i');
+        $waktu = Carbon::now()->timezone('Asia/Jakarta');
+
+
+        return view('room-select-confirm.index', compact('mahasiswa', 'tanggal', 'jam', 'kelas', 'waktu'));
     }
 
     /**
@@ -35,7 +53,22 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();
+        $kelas = Kelas::where('id', $request->id)->first();
+        $kelas->tersedia = 0;
+        $mahasiswa->meminjam = 1;
+        $data = new Peminjaman();
+        $waktu = Carbon::now()->timezone('Asia/Jakarta');
+        $data->id_mahasiswa = Session::get('id');
+        $data->id_kelas = $request->id;
+        $data->waktu_pinjam = $waktu;
+        $kelas->save();
+        $mahasiswa->save();
+        $data->save();
+
+        dd($data);
+
+        return redirect()->back()->with('success', 'Peminjaman berhasil ditambahkan');
     }
 
     /**

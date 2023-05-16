@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MahasiswaController extends Controller
 {
@@ -17,16 +18,35 @@ class MahasiswaController extends Controller
         //
     }
 
+    //make a function for menu
+    public function menu($id)
+    {
+        //find mahasiswa by id
+        $mahasiswa = Mahasiswa::find($id);
+
+        //if mahasiswa is not found
+        if (!$mahasiswa) {
+            return redirect()->back()->with('error', 'Mahasiswa tidak ditemukan');
+        } else {
+            //if mahasiswa is found go to menu and send mahasiswa model
+
+            return view('main-menu.index', compact('mahasiswa'));
+        }
+    }
+
     public function check(Request $request)
     {
         //mahasiswa validate nim in the database
         $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+        //session start
+        Session::start();
 
         //if nim is not found
         if (!$mahasiswa) {
             return redirect()->back()->with('error', 'NIM tidak ditemukan');
         } else {
             //if nim is found go to account-login-confirm and send mahasiswa model
+            Session::put('id', $mahasiswa->id);
             return view('account-login-confirm.index', compact('mahasiswa'));
         }
     }

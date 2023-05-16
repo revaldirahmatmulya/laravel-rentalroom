@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PeminjamanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +25,8 @@ Route::get('/confirm', function () {
     return view('account-login-confirm.index');
 });
 
-//make a route for index on main-menu folder
-Route::get('/menu', function () {
-    return view('main-menu.index');
-});
+
+Route::get('/menu/{id}', [MahasiswaController::class, 'menu']);
 Route::get('/ruang-kelas', [KelasController::class, 'index']);
 //make a route for index on ruang-lab folder
 Route::get('/ruang-lab', [KelasController::class, 'indexLab']);
@@ -38,3 +37,6 @@ Route::get('/room-select-confirm', function () {
 
 //make a route for call check function on mahaasiswa controller
 Route::post('/mahasiswa/check', [MahasiswaController::class, 'check']);
+
+Route::get('/pinjam/{id}', [PeminjamanController::class, 'index']);
+Route::post('/pinjam/store/{id}', [PeminjamanController::class, 'store']);

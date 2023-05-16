@@ -28,7 +28,7 @@
 
             <div class="container" style="background-color: #6793c6;height: 100vh;">
                 <div class="btn-confirm-wrap d-flex  align-items-center justify-content-end">
-                    <a href={{ url('menu') }}><button type="button" class="btn btn-light btn-lg mb-4"
+                    <a href={{ url('menu/' . $mahasiswa->id) }}><button type="button" class="btn btn-light btn-lg mb-4"
                             style="width: 200px"><b>Confirm</b></button></a>
                     <a href="{{ url('/') }}"><button type="button"
                             class="btn btn-light btn-lg mb-4"style="width: 200px"><b>Scan Ulang</b></button></a>

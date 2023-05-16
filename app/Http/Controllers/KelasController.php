@@ -14,8 +14,9 @@ class KelasController extends Controller
      */
     public function index()
     {
+        //2 where clause
+        $kelas = Kelas::where('nama_kelas', 'like', 'kelas%')->where('tersedia', 1)->get();
 
-        $kelas = Kelas::where('nama_kelas', 'like', 'kelas%')->get();
 
 
         if ($kelas->isEmpty()) {
@@ -28,7 +29,7 @@ class KelasController extends Controller
     public function indexLab()
     {
 
-        $lab = Kelas::where('nama_kelas', 'like', 'lab%')->get();
+        $lab = Kelas::where('nama_kelas', 'like', 'lab%')->where('tersedia', 1)->get();
 
 
         if ($lab->isEmpty()) {

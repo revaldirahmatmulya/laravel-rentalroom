@@ -8,16 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Peminjaman extends Model
 {
     use HasFactory;
+    protected $table = "peminjaman";
+    protected $guarded = [];
 
-    //fillable
-    protected $fillable = [
-        'id',
-        'id_mahasiswa',
-        'id_kelas',
-        'waktu_pinjam',
-        'waktu_kembali',
-        'status'
-    ];
 
     //relasi
     public function mahasiswa()

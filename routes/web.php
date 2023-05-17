@@ -48,4 +48,4 @@ Route::get('/pinjam/{id}', [PeminjamanController::class, 'index']);
 Route::post('/pinjam/store/{id}', [PeminjamanController::class, 'store']);
 
 Route::get('/kembali/{id}', [PeminjamanController::class, 'index']);
-Route::post('/kembali/store/{id}', [PeminjamanController::class, 'pengembalian']);
+Route::put('/kembali/store/{id}', [PeminjamanController::class, 'pengembalian']);

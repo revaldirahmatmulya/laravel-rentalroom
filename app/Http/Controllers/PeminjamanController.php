@@ -125,11 +125,13 @@ class PeminjamanController extends Controller
         $kelas->tersedia = 1;
         $mahasiswa->meminjam = 0;
         $data = Peminjaman::where('id_mahasiswa', Session::get('id'))->first();
+        $dataId = $data->id;
         $waktu = Carbon::now()->timezone('Asia/Jakarta');
         $data->waktu_kembali = $waktu;
-        $kelas->save();
-        $mahasiswa->save();
-        $data->save();
+        $data->status = "Sudah dikembalikan";
+        $kelas->update();
+        $mahasiswa->update();
+        $data->update();
 
         return redirect()->back()->with('success', 'Pengembalian berhasil ditambahkan');
     }

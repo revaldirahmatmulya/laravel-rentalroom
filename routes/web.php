@@ -46,3 +46,6 @@ Route::post('/mahasiswa/check', [MahasiswaController::class, 'check']);
 
 Route::get('/pinjam/{id}', [PeminjamanController::class, 'index']);
 Route::post('/pinjam/store/{id}', [PeminjamanController::class, 'store']);
+
+Route::get('/kembali/{id}', [PeminjamanController::class, 'index']);
+Route::post('/kembali/store/{id}', [PeminjamanController::class, 'pengembalian']);

@@ -33,6 +33,7 @@
                     <h3>{{ $kelas->nama_kelas }}</h3>
                     <form action="{{ url('kembali/store/' . $kelas->id) }}" method="post">
                         @csrf
+
                         <button type="submit" class="btn btn-light btn-lg mb-4"
                             style="width: 200px;margin-top: 10vh"><b>Kembalikan</b></button>
                     </form>

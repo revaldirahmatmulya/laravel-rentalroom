@@ -29,7 +29,6 @@ class MahasiswaController extends Controller
             return redirect()->back()->with('error', 'Mahasiswa tidak ditemukan');
         } else {
             //if mahasiswa is found go to menu and send mahasiswa model
-
             return view('main-menu.index', compact('mahasiswa'));
         }
     }

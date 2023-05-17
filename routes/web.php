@@ -30,6 +30,12 @@ Route::get('/menu/{id}', [MahasiswaController::class, 'menu']);
 Route::get('/ruang-kelas', [KelasController::class, 'index']);
 //make a route for index on ruang-lab folder
 Route::get('/ruang-lab', [KelasController::class, 'indexLab']);
+//make route for pengembalian on ruang-kelas folder
+Route::get('/pengembalian-kelas', [KelasController::class, 'kelasDipinjam']);
+//make route for pengembalian on ruang-lab folder
+Route::get('/pengembalian-lab', [KelasController::class, 'labDipinjam']);
+
+
 //make a route for index on room-select-confirm folder
 Route::get('/room-select-confirm', function () {
     return view('room-select-confirm.index');

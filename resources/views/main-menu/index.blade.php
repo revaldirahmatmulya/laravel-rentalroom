@@ -21,10 +21,10 @@
                     <a href={{ url('ruang-lab/') }}><button type="button" class="btn btn-light  mb-4"
                             style="width: 300px;height: 50px;"><b>Pinjam
                                 Ruang Lab</b></button></a>
-                    <a href=""><button type="button" class="btn btn-light  mb-4"
+                    <a href={{ url('pengembalian-kelas/') }}><button type="button" class="btn btn-light  mb-4"
                             style="width: 300px;height: 50px;"><b>Kembalikan
                                 Ruang Kelas</b></button></a>
-                    <a href=""><button type="button" class="btn btn-light  mb-4"
+                    <a href={{ url('pengembalian-lab/') }}><button type="button" class="btn btn-light  mb-4"
                             style="width: 300px;height: 50px;"><b>Kembalikan
                                 Ruang Lab</b></button></a>
                 </div>

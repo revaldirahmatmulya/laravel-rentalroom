@@ -62,11 +62,10 @@ class PeminjamanController extends Controller
         $data->id_mahasiswa = Session::get('id');
         $data->id_kelas = $request->id;
         $data->waktu_pinjam = $waktu;
+        $data->waktu_kembali = "Masih dipinjam";
         $kelas->save();
         $mahasiswa->save();
         $data->save();
-
-        dd($data);
 
         return redirect()->back()->with('success', 'Peminjaman berhasil ditambahkan');
     }
@@ -114,5 +113,22 @@ class PeminjamanController extends Controller
     public function destroy(Peminjaman $peminjaman)
     {
         //
+    }
+
+    //create function pengembalian
+    public function pengembalian(Request $request)
+    {
+        $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();
+        $kelas = Kelas::where('id', $request->id)->first();
+        $kelas->tersedia = 1;
+        $mahasiswa->meminjam = 0;
+        $data = Peminjaman::where('id_mahasiswa', Session::get('id'))->first();
+        $waktu = Carbon::now()->timezone('Asia/Jakarta');
+        $data->waktu_kembali = $waktu;
+        $kelas->save();
+        $mahasiswa->save();
+        $data->save();
+
+        return redirect()->back()->with('success', 'Pengembalian berhasil ditambahkan');
     }
 }

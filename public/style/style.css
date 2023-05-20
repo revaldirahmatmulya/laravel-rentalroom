@@ -20,7 +20,7 @@
     color: white;
 }
 .text-main-1 {
-    font-size: 15px;
+    font-size: 25px;
     margin-top: 80px;
     margin-bottom: 40px;
 }
@@ -53,4 +53,12 @@
   }
   .kelas-list .row {
     margin:30px;
+  }
+
+  .table-card{
+    background-color: white;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
   }

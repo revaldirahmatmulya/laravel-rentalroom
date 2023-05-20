@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PengembalianController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,5 +50,29 @@ Route::post('/mahasiswa/check', [MahasiswaController::class, 'check']);
 Route::get('/pinjam/{id}', [PeminjamanController::class, 'index']);
 Route::post('/pinjam/store/{id}', [PeminjamanController::class, 'store']);
 
-Route::get('/kembali/{id}', [PeminjamanController::class, 'index']);
-Route::put('/kembali/store/{id}', [PeminjamanController::class, 'pengembalian']);
+Route::get('/kembalikan', [PengembalianController::class, 'dipinjam']);
+Route::put('/kembalikan/{id}', [PengembalianController::class, 'pengembalian']);
+
+Route::get('/ending', function () {
+    return view('ending.index');
+});
+
+
+
+
+// Route untuk login admin
+Route::prefix('admin')->group(function () {
+    // Login routes
+    Route::get('login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('login', [AdminController::class, 'login'])->name('admin.login.submit');
+    // Logout route
+    Route::post('logout', [AdminController::class, 'logout'])->name('admin.logout');
+});
+
+
+// Middleware untuk admin
+Route::middleware(['admin'])->group(function () {
+    // Route untuk halaman dashboard admin
+    Route::get('/admin/dashboard', [PeminjamanController::class, 'admin'])->name('admin.dashboard');
+    // Tambahkan route lainnya sesuai kebutuhan
+});

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="text-wrap-kelas text-center" style="margin-top: 10vh">
-                <h1 class="mb-4 text-white">Ruang Lab</h1>
+                <h1 class="mb-4 text-white">Ruang Lab Yang Tersedia</h1>
                 <h3 class="text-white">Pilih ruang yang akan dipinjam</h3>
             </div>
         </div>
@@ -16,7 +16,7 @@
                     @foreach ($lab as $e)
                         <div class="col-lg-4">
                             <a href="{{ url('pinjam/' . $e->id) }}"> <button type="button" class="btn btn-light  mb-4"
-                                    style="width: 300px;height: 50px;"><b>Pinjam
+                                    style="width: 300px;height: 50px;"><b>
                                         {{ $e->nama_kelas }}</b></button></a>
                         </div>
                     @endforeach

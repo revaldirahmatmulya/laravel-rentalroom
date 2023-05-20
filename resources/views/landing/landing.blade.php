@@ -37,7 +37,7 @@
 
     <div class="row">
         <div class="col-lg-10 d-flex justify-content-end ">
-            <a href="" style="margin-top: 70px"><button type="button"
+            <a href="{{ url('admin/login') }}" style="margin-top: 70px"><button type="button"
                     class="btn btn-light btn-lg"><b>Admin</b></button></a>
         </div>
     </div>

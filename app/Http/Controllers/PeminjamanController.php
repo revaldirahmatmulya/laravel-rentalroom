@@ -24,7 +24,7 @@ class PeminjamanController extends Controller
         Carbon::setLocale('id');
         $sesiId = Session::get('id');
 
-        $kelas = Kelas::where('id', $sesiId)->first();
+        $kelas = Kelas::where('id', $request->id)->first();
         $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();
         $tanggal = Carbon::now()->format('Y-m-d');
         //carbon indonesia time H:i:s
@@ -36,29 +36,13 @@ class PeminjamanController extends Controller
     }
 
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();
         $kelas = Kelas::where('id', $request->id)->first();
         $kelas->tersedia = 0;
-        $mahasiswa->meminjam = 1;
+        $meminjam = $mahasiswa->meminjam;
+        $mahasiswa->meminjam = $meminjam + 1;
         $data = new Peminjaman();
         $waktu = Carbon::now()->timezone('Asia/Jakarta');
         $data->id_mahasiswa = Session::get('id');
@@ -69,70 +53,12 @@ class PeminjamanController extends Controller
         $mahasiswa->save();
         $data->save();
 
-        return redirect()->back()->with('success', 'Peminjaman berhasil ditambahkan');
+        return redirect('/ending')->with('success', 'Peminjaman berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Peminjaman  $peminjaman
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Peminjaman $peminjaman)
+    public function admin()
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Peminjaman  $peminjaman
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Peminjaman $peminjaman)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Peminjaman  $peminjaman
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Peminjaman $peminjaman)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Peminjaman  $peminjaman
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Peminjaman $peminjaman)
-    {
-        //
-    }
-
-    //create function pengembalian
-    public function pengembalian(Request $request)
-    {
-        $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();
-        $kelas = Kelas::where('id', $request->id)->first();
-        $kelas->tersedia = 1;
-        $mahasiswa->meminjam = 0;
-        $data = Peminjaman::where('id_mahasiswa', Session::get('id'))->first();
-        $dataId = $data->id;
-        $waktu = Carbon::now()->timezone('Asia/Jakarta');
-        $data->waktu_kembali = $waktu;
-        $data->status = "Sudah dikembalikan";
-        $kelas->update();
-        $mahasiswa->update();
-        $data->update();
-
-        return redirect()->back()->with('success', 'Pengembalian berhasil ditambahkan');
+        $peminjaman = Peminjaman::all();
+        return view('admin.index', compact('peminjaman'));
     }
 }

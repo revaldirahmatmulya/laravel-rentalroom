@@ -14,8 +14,9 @@
             <div class="container kelas-list">
                 <div class="row">
                     @foreach ($lab as $e)
-                        <div class="col-lg-4">
-                            <a href="{{ url('kembali/' . $e->id) }}"> <button type="button" class="btn btn-light  mb-4"
+                        <div class="col-lg-4 col-sm-4">
+                            <a href="{{ url('kembali/' . $e->id) }}"> <button type="button"
+                                    class="btn btn-light  mb-4 btn-kelas-lab"
                                     style="width: 300px;height: 50px;"><b>Kembalikan
                                         {{ $e->nama_kelas }}</b></button></a>
                         </div>

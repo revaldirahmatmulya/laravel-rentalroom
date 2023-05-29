@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-sm-12">
             <div class="text-main-menu text-center">
                 <h5 class="text-main-1">
                     SELAMAT DATANG
@@ -36,8 +36,8 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-10 d-flex justify-content-end ">
-            <a href="{{ url('admin/login') }}" style="margin-top: 70px"><button type="button"
+        <div class="col-lg-8 d-flex justify-content-end  " style="padding-right: 40px">
+            <a href="{{ url('admin/login') }}" style="margin-top: 40px"><button type="button"
                     class="btn btn-light btn-lg"><b>Admin</b></button></a>
         </div>
     </div>

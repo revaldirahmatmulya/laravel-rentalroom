@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-7 d-flex justify-content-center">
+        <div class="col-lg-7 col-sm-6 d-flex justify-content-center">
             <div class="img-wrap " style="margin-top: 10vh">
-                <img src="{{ asset('image/poltek-logo.png') }}" style="width: 500px"alt="">
+                <img src="{{ asset('image/poltek-logo.png') }}" style="width: 500px"alt="" class="logo-menu">
             </div>
 
         </div>
-        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+        <div class="col-lg-5 col-sm-6 d-flex justify-content-center align-items-center">
             <div class="menu-wrap mx-auto text-center">
                 <h1 class="text-white">{{ $mahasiswa->nama }}</h1>
                 <h3 class="text-white mb-4">{{ $mahasiswa->nim }}</h3>

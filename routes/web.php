@@ -48,7 +48,7 @@ Route::get('/room-select-confirm', function () {
 Route::post('/mahasiswa/check', [MahasiswaController::class, 'check']);
 
 Route::get('/pinjam/{id}', [PeminjamanController::class, 'index']);
-Route::post('/pinjam/store/{id}', [PeminjamanController::class, 'store']);
+Route::post('/pinjam/store/{id}/{code}', [PeminjamanController::class, 'store']);
 
 Route::get('/kembalikan', [PengembalianController::class, 'dipinjam']);
 Route::put('/kembalikan/{id}', [PengembalianController::class, 'pengembalian']);

@@ -15,7 +15,7 @@
 
 <body>
     <div class="row">
-        <div class="col-lg-8 d-flex align-items-center justify-content-center">
+        <div class="col-lg-8 col-sm-6 d-flex align-items-center justify-content-center">
             <div class="account-info-wrap text-center">
                 <img class="img-profile" src="{{ asset('image/profile.svg') }}" style="width: 200px"></img>
                 <h1>{{ $mahasiswa->nama }}</h1>
@@ -24,8 +24,7 @@
             </div>
 
         </div>
-        <div class="col-lg-4">
-
+        <div class="col-lg-4 col-sm-6">
             <div class="container" style="background-color: #6793c6;height: 100vh;">
                 <div class="btn-confirm-wrap d-flex  align-items-center justify-content-end">
                     <a href={{ url('menu/' . $mahasiswa->id) }}><button type="button" class="btn btn-light btn-lg mb-4"

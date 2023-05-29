@@ -1,12 +1,20 @@
 from pyA20.gpio import gpio
 from pyA20.gpio import port
 from time import sleep
+import sys
 
-gpio.init()
-gpio.setcfg(port.PA7, gpio.OUTPUT)
+def toggle_gpio(pa_number):
+    gpio.init()
+    gpio.setcfg(pa_number, gpio.OUTPUT)
 
-while True:
-    gpio.output(port.PA7, gpio.HIGH)
+    gpio.output(pa_number, gpio.LOW)
     sleep(1)
-    gpio.output(port.PA7, gpio.LOW)
-    sleep(1)
+    gpio.output(pa_number, gpio.HIGH)
+
+
+# Ambil argumen PA yang dikirim dari Laravel
+pa_number = sys.argv[1]
+
+# Panggil fungsi toggle_gpio() dengan argumen PA yang diterima
+toggle_gpio(pa_number)
+

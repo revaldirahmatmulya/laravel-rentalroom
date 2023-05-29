@@ -38,16 +38,13 @@ class PeminjamanController extends Controller
     }
 
 
+
     public function store(Request $request)
     {
-        $scriptPath = public_path('script.py');
-        $process = new Process(['python', $scriptPath]);
-        $process->run();
 
-        // Periksa jika ada kesalahan saat menjalankan skrip
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
+        $output = $this->executePythonScript($request->kode_kunci);
+        echo "Success: " . $output;
+
 
         $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();
         $kelas = Kelas::where('id', $request->id)->first();
@@ -72,5 +69,19 @@ class PeminjamanController extends Controller
     {
         $peminjaman = Peminjaman::all();
         return view('admin.index', compact('peminjaman'));
+    }
+
+    public function executePythonScript($pa_number)
+    {
+        // Jalankan script Python menggunakan Process
+        $scriptPath = public_path('script.py');
+        $process = new Process(['python', $scriptPath, $pa_number]);
+        $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
+        return $process->getOutput();
     }
 }

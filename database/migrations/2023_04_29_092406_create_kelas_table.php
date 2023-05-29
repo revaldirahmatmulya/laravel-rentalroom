@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kelas', 50)->unique();
+            $table->string('kode_kunci', 10);
             $table->integer('tersedia')->default(0);
             $table->timestamps();
         });

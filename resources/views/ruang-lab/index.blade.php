@@ -10,13 +10,13 @@
         </div>
     </div>
     <div class="row d-flex d-flex align-items-center" style="margin-top: 10vh">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 col-sm-12 text-center">
             <div class="container kelas-list">
                 <div class="row">
                     @foreach ($lab as $e)
-                        <div class="col-lg-4">
-                            <a href="{{ url('pinjam/' . $e->id) }}"> <button type="button" class="btn btn-light  mb-4"
-                                    style="width: 300px;height: 50px;"><b>
+                        <div class="col-lg-4 col-sm-4">
+                            <a href="{{ url('pinjam/' . $e->id) }}"> <button type="button"
+                                    class="btn btn-light  mb-4 btn-kelas-lab" style="width: 300px;height: 50px;"><b>
                                         {{ $e->nama_kelas }}</b></button></a>
                         </div>
                     @endforeach

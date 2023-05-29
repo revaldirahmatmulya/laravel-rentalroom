@@ -15,9 +15,9 @@
                 <div class="row">
 
                     @foreach ($kelas as $e)
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-sm-4">
                             <a href="{{ url('kembali/' . $e->id) }}">
-                                <button type="submit" class="btn btn-light mb-4"
+                                <button type="submit" class="btn btn-light mb-4 btn-kelas-lab"
                                     style="width: 300px;height: 50px;"><b>Kembalikan
                                         {{ $e->nama_kelas }}</b></button>
                             </a>

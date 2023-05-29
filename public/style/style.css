@@ -62,3 +62,23 @@
     padding: 20px;
     border-radius: 10px;
   }
+
+  @media (min-width: 576px) {
+
+  .text-main-1 {
+    font-size: 25px;
+}
+.text-main-2{
+    font-size: 60px;
+}
+.text-main-3{
+    font-size: 30px;
+}
+.logo-menu {
+    height: 350px;
+    width: auto !important; 
+}
+.btn-kelas-lab{
+  width: 200px !important;
+}
+ }

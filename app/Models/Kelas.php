@@ -13,6 +13,7 @@ class Kelas extends Model
     protected $fillable = [
         'id',
         'nama_kelas',
+        'kode_kunci',
         'tersedia'
     ];
 

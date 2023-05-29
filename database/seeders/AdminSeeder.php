@@ -4,9 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+=======
+>>>>>>> 8616a0082ddbafbdcf980a5885fa34ad4acae981
 
 class AdminSeeder extends Seeder
 {
@@ -17,6 +20,7 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         DB::table('admins')->delete();
         DB::table('admins')->insert([
             'username' => "admin",
@@ -24,3 +28,8 @@ class AdminSeeder extends Seeder
         ]);
     }
 }
+=======
+        //
+    }
+}
+>>>>>>> 8616a0082ddbafbdcf980a5885fa34ad4acae981

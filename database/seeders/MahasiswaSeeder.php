@@ -26,8 +26,8 @@ class MahasiswaSeeder extends Seeder
     {
         DB::table('mahasiswas')->delete();
         Mahasiswa::create([
-            'nim' => '200',
-            'nama' => 'Saphira',
+            'nim' => '2031130021',
+            'nama' => 'Saphira Indah Pramesti',
             'jurusan' => 'Teknik Telekomunikasi',
             'meminjam' => 0
         ]);

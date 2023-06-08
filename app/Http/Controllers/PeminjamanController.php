@@ -42,8 +42,7 @@ class PeminjamanController extends Controller
     public function store(Request $request)
     {
 
-        $output = $this->executePythonScript($request->kode_kunci);
-        echo "Success: " . $output;
+    
 
 
         $mahasiswa = Mahasiswa::where('id', Session::get('id'))->first();

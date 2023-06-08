@@ -28,6 +28,7 @@ class MahasiswaSeeder extends Seeder
         Mahasiswa::create([
             'nim' => '2031130021',
             'nama' => 'Saphira Indah Pramesti',
+            'kelas' => '1-A',
             'jurusan' => 'Teknik Telekomunikasi',
             'meminjam' => 0
         ]);

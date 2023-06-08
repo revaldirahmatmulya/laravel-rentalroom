@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nim', 10)->unique();
             $table->string('nama', 50);
+            $table->string('kelas',20);
             $table->string('jurusan', 255);
             $table->integer('meminjam')->default(0);
             $table->timestamps();
